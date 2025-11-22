@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  Nir208:
+  Nir209:
     image: nirpery/flight-project-itush:v1
-    container_name: Nir208
+    container_name: Nir209
     restart: unless-stopped
 
   Itamar1996:
@@ -43,7 +43,7 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     depends_on:
-      - Nir208
+      - Nir209
       - Itamar1996
       - Nave2019
       - passport-api1
