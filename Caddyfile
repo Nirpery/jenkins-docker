@@ -1,0 +1,19 @@
+checkin.ddns.net {
+    handle_path /passport/* {
+        reverse_proxy http://passport-api1:8000 http://passport-api2:8000
+    }
+
+    handle_path /Nir208/* {
+        reverse_proxy http://Nir208:5000
+    }
+
+    handle_path /Itamar1996/* {
+        reverse_proxy http://Itamar1996:5000
+    }
+
+    handle_path /Nave2019/* {
+        reverse_proxy http://Nave2019:5000
+    }
+
+    respond /health "ok" 200
+}

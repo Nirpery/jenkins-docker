@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  Nir208:
+    image: nirpery/flight-project-itush:v1
+    container_name: Nir208
+    restart: unless-stopped
+
+  Itamar1996:
+    image: nirpery/flight-project-itush:v1
+    container_name: Itamar1996
+    restart: unless-stopped
+
+  Nave2019:
+    image: nirpery/flight-project-itush:v1
+    container_name: Nave2019
+    restart: unless-stopped
+
+  passport-api1:
+    image: nirpery/passport-api:v3
+    container_name: passport-api1
+    restart: unless-stopped
+    expose:
+      - "8000"
+
+  passport-api2:
+    image: nirpery/passport-api:v3
+    container_name: passport-api2
+    restart: unless-stopped
+    expose:
+      - "8000"
+
+  # Caddy – Reverse proxy + HTTPS (self-signed/internal TLS)
+  caddy:
+    image: caddy:2.8
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - Nir208
+      - Itamar1996
+      - Nave2019
+      - passport-api1
+      - passport-api2
+
+volumes:
+  caddy_data:
+  caddy_config:
