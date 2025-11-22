@@ -3,7 +3,7 @@ version: "3.9"
 services:
   Nir209:
     image: nirpery/flight-project-itush:v1
-    container_name: Nir209
+    container_name: Nir207
     restart: unless-stopped
 
   Itamar1996:
