@@ -4,7 +4,7 @@ checkin.ddns.net {
     }
 
     handle_path /Nir208/* {
-        reverse_proxy http://Nir208:5000
+        reverse_proxy http://Nir209:5000
     }
 
     handle_path /Itamar1996/* {
