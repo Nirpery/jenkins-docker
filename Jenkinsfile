@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     environment {
-        COMPOSE_PROJECT_NAME = "jenkins-demo"
+        COMPOSE_PROJECT_NAME = "jenkins-docker"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Nirpery/jenkins-demo.git'
+                git 'https://github.com/Nirpery/jenkins-docker.git'
             }
         }
         stage('Deploy Docker Compose') {
