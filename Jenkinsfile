@@ -11,7 +11,6 @@ pipeline {
                 git 'https://github.com/Nirpery/jenkins-demo.git'
             }
         }
-[O
         stage('Deploy Docker Compose') {
             steps {
                 script {
