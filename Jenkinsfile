@@ -5,13 +5,13 @@ pipeline {
         COMPOSE_PROJECT_NAME = "jenkins-docker"
     }
 
-stage('Checkout') {
-    steps {
-        git branch: 'main',
-            url: 'https://github.com/Nirpery/jenkins-docker.git'
-    }
-}
-
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Nirpery/jenkins-docker.git'
+            }
+        }
         stage('Deploy Docker Compose') {
             steps {
                 script {
@@ -37,4 +37,3 @@ stage('Checkout') {
         }
     }
 }
-
