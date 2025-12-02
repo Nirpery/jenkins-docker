@@ -12,7 +12,7 @@ pipeline {
                     url: 'https://github.com/Nirpery/jenkins-docker.git'
             }
         }
-        stage('Deploy Docker Compose For Nir Pery!') {
+        stage('Deploy Docker Compose For Nir Pery!!!!!!!!!!') {
             steps {
                 script {
                     // לעבוד בתוך workspace של ה־repo
