@@ -11,7 +11,7 @@ pipeline {
                 git 'https://github.com/Nirpery/jenkins-docker.git'
             }
         }
-        stage('Deploy Docker Compose') {
+        stage('Deploy Docker Compose For Nir Pery') {
             steps {
                 script {
                     // Pull latest images
