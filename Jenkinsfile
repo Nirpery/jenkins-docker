@@ -8,20 +8,24 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Nirpery/jenkins-docker.git'
+                git branch: 'main',
+                    url: 'https://github.com/Nirpery/jenkins-docker.git'
             }
         }
         stage('Deploy Docker Compose For Nir Pery') {
             steps {
                 script {
-                    // Pull latest images
-                    sh 'docker-compose pull'
+                    // לעבוד בתוך workspace של ה־repo
+                    dir("${env.WORKSPACE}") {
+                        // Pull latest images
+                        sh 'docker-compose pull'
 
-                    // Bring up containers
-                    sh 'docker-compose up -d --remove-orphans'
+                        // Bring up containers
+                        sh 'docker-compose up -d --remove-orphans'
 
-                    // Optional: prune old unused images
-                    sh 'docker image prune -f'
+                        // Optional: prune old unused images
+                        sh 'docker image prune -f'
+                    }
                 }
             }
         }
@@ -36,4 +40,3 @@ pipeline {
         }
     }
 }
-

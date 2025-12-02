@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  Nir208:
+  Nir209:
     image: nirpery/flight-project-itush:v1
-    container_name: Nir208
+    container_name: Nir207
     restart: unless-stopped
 
   Itamar1996:
@@ -29,26 +29,3 @@ services:
     restart: unless-stopped
     expose:
       - "8000"
-
-  # Caddy – Reverse proxy + HTTPS (self-signed/internal TLS)
-  caddy:
-    image: caddy:2.8
-    container_name: caddy
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      - Nir208
-      - Itamar1996
-      - Nave2019
-      - passport-api1
-      - passport-api2
-
-volumes:
-  caddy_data:
-  caddy_config:
