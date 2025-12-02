@@ -33,7 +33,7 @@ pipeline {
 
     post {
         success {
-            echo 'Deployment Flight successful!'
+            echo 'Deployment Flight successful And containers are Up!'
         }
         failure {
             echo 'Deployment failed!'
